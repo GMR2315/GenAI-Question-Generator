@@ -1,127 +1,85 @@
 # GenAI-Question-Generator
 
-🚀 15-Day Development Plan for GenAI Question Generator
-Now that your GitHub branches are set up, each team member can work independently while ensuring smooth integration.
+📌 Full Project Details – GenAI Question Generator
+This document outlines everything you need to develop, integrate, and deploy the AI-powered question generation system efficiently. This will serve as a guide for all team members.
 
-👥 Team Members & Responsibilities
-1️⃣ Frontend Developer (Branch: frontend)
-2️⃣ Backend Developer (Branch: backend)
-3️⃣ Database Engineer (Branch: database)
-4️⃣ Deployment & Integration Engineer (Branch: deployment)
+🚀 Project Overview
+🔹 Goal: Develop a GenAI-powered tool that generates Multiple-Choice, Descriptive, and Coding Questions based on syllabus topics and difficulty levels.
+🔹 Tech Stack:
 
-📌 Daily Task Breakdown for Each Team Member
-Day 1-2: Setup & Planning
-🔹 All Members:
+Frontend: React.js (or Next.js), Tailwind CSS
+Backend: FastAPI (Python) or Express.js (Node.js)
+Database: MongoDB or PostgreSQL
+AI Model: OpenAI API (GPT-4 or Claude)
+Deployment: Vercel (Frontend), Railway/Render (Backend)
+🔹 Key Features:
+✅ Generate Questions based on user-selected topics & difficulty
+✅ Supports MCQs, Descriptive, and Coding Questions
+✅ Stores past generated questions for reuse
+✅ User Authentication (optional)
+✅ Easy API Integration for Frontend
 
-Set up the development environment on their local machine.
-Finalize the list of features and API endpoints together.
-Define data models and UI wireframes.
-Make sure everyone can push and pull code from GitHub.
-👨‍💻 Frontend Developer (React/Next.js)
-Tasks & Timeline
-✅ Day 3-5: UI Design & Components
+📌 How the System Works
+1️⃣ User Workflow (Frontend)
+User selects a subject & topic from a dropdown list.
+User selects difficulty level (Easy, Medium, Hard).
+User selects question type (MCQ, Descriptive, Coding).
+AI generates questions dynamically based on inputs.
+User can save, edit, or regenerate questions if needed.
+User can export questions as PDF or text (optional).
+2️⃣ Backend Process
+Receives user input (topic, difficulty, type)
+Calls OpenAI API with custom prompt engineering to generate unique questions
+Processes response and formats it into proper structure
+Saves generated questions in the database for future use
+Returns JSON response to the frontend
+📌 Team Member Responsibilities
+Each team member will work independently and merge their work on GitHub.
 
-Create UI using Next.js + Tailwind CSS.
-Implement Navigation Bar, Home Page, and Question Generation UI.
-Build form components for topic selection, difficulty levels, and question type.
-✅ Day 6-7: API Integration
+👨‍💻 Team Member 1: Frontend Development
+Setup React.js (or Next.js) with Tailwind CSS
+Create UI Components: Dropdowns, buttons, text areas
+Connect frontend to backend API to fetch questions
+Implement dynamic question rendering
+Add an export to PDF feature (if time allows)
+👩‍💻 Team Member 2: Backend Development
+Setup FastAPI (Python) or Express.js (Node.js)
+Create API endpoints for generating questions
+Integrate OpenAI API for text generation
+Store generated questions in MongoDB/PostgreSQL
+Deploy the backend to Railway or Render
+👨‍💻 Team Member 3: AI Integration & Prompt Engineering
+Design effective AI prompts for generating MCQs, descriptive, and coding questions
+Optimize AI-generated responses for better quality
+Ensure questions are unique but maintain a natural exam feel
+Implement question modification features (twisting, difficulty adjustment)
+Work with backend dev to test API responses
+👩‍💻 Team Member 4: Deployment & Documentation
+Deploy Frontend (Vercel) & Backend (Railway/Render)
+Setup environment variables & API keys securely
+Write README.md & API Documentation
+Ensure everything works together before final submission
+📌 API Endpoints for Integration
+These endpoints will be called by the frontend to fetch AI-generated questions.
 
-Connect frontend to backend using Axios.
-Implement loading states & error handling for API requests.
-✅ Day 8-9: Testing & Optimization
+Endpoint	Method	Description
+/generate-question	POST	Generate a single question based on topic, difficulty, and type
+/generate-paper	POST	Generate a full set of questions (like a mock test)
+/save-question	POST	Save a question to the database
+/get-questions	GET	Retrieve stored questions
+/delete-question/{id}	DELETE	Remove a saved question
+📌 Integration & Final Deployment Plan
+Step 1: Each member works on their assigned tasks in GitHub branches
+Step 2: Backend & AI model are developed and tested
+Step 3: Frontend connects to backend APIs
+Step 4: Everything is tested together
+Step 5: Deploy to Vercel & Railway/Render
+Step 6: Final testing & bug fixes
+Step 7: Submit & present the project! 🎉
+📌 Next Steps
+Each team member starts working on their assigned task.
+Backend team shares API endpoints once they are functional.
+Frontend team builds UI while waiting for backend.
+AI team tests prompt engineering separately and then integrates it.
+Final deployment happens in the last 3-4 days.
 
-Make UI mobile-friendly and responsive.
-Fix any UI bugs and improve design.
-✅ Day 12-13: Final Touches & Deployment
-
-Work with the Deployment Engineer to push the frontend to Vercel.
-🚀 Tech Stack: Next.js, Tailwind CSS, Axios
-
-🛠️ Backend Developer (FastAPI)
-Tasks & Timeline
-✅ Day 3-5: API Setup
-
-Set up FastAPI and create basic routes (/generate-question, /generate-paper).
-Implement prompt engineering to interact with OpenAI API for question generation.
-✅ Day 6-7: AI Integration
-
-Use OpenAI API (GPT-4) to generate MCQs, descriptive, and coding questions.
-Implement difficulty level adjustments using prompt engineering.
-✅ Day 8-9: Question Paper Generation
-
-Implement a function to create a full question paper from multiple topics.
-Ensure that questions are not exact copies but slightly reworded versions of past questions.
-✅ Day 10-11: Testing & API Documentation
-
-Write API documentation using Swagger (FastAPI’s built-in support).
-Test API endpoints using Postman.
-✅ Day 12-13: Final Touches & Deployment
-
-Deploy the backend on Railway or Render with the Deployment Engineer.
-🚀 Tech Stack: FastAPI, OpenAI API, Swagger, Postman
-
-🗄️ Database Engineer (MongoDB/PostgreSQL)
-Tasks & Timeline
-✅ Day 3-4: Database Setup
-
-Set up MongoDB Atlas or PostgreSQL on the cloud.
-Design schema for questions (question_text, difficulty, topic, etc.).
-✅ Day 5-6: Backend Integration
-
-Work with the Backend Developer to store generated questions.
-Optimize querying and indexing for fast retrieval.
-✅ Day 7-8: Data Storage & Retrieval
-
-Implement search and filter functions (e.g., get questions by topic).
-Ensure efficient data storage and avoid duplicates.
-✅ Day 9-10: Database Optimization
-
-Implement caching (Redis) for faster access.
-Test data retrieval speed and optimize queries.
-✅ Day 12-13: Final Testing & Deployment
-
-Deploy the database and configure access controls.
-🚀 Tech Stack: MongoDB Atlas/PostgreSQL, Redis
-
-🚀 Deployment & Integration Engineer
-Tasks & Timeline
-✅ Day 3-4: Setup DevOps Tools
-
-Set up CI/CD workflow for automatic deployment using GitHub Actions.
-Ensure seamless communication between Frontend & Backend.
-✅ Day 5-6: Authentication & Security
-
-Implement JWT authentication in the backend.
-Secure API endpoints using rate limiting and CORS policies.
-✅ Day 7-9: Hosting & Load Balancing
-
-Deploy backend on Railway or Render.
-Deploy frontend on Vercel.
-Implement API Gateway for scaling.
-✅ Day 10-11: Final Testing
-
-Perform end-to-end testing with the frontend team.
-Fix deployment issues and ensure 24/7 uptime.
-✅ Day 12-13: Final Launch 🚀
-
-Ensure everything is publicly accessible and share the live demo link.
-🚀 Tech Stack: GitHub Actions, Railway/Render, Vercel, Cloudflare
-
-📌 Final Days (Day 14-15): Testing & Submission
-🔹 All Members:
-
-Conduct final end-to-end testing.
-Write documentation & README.md.
-Prepare presentation slides for the hackathon.
-📜 Summary of Tools & Tech Stack
-Role	Tech Stack	Deployment Platform
-Frontend (Next.js)	Next.js, Tailwind CSS, Axios	Vercel
-Backend (FastAPI)	FastAPI, OpenAI API, Swagger	Railway/Render
-Database (MongoDB/PostgreSQL)	MongoDB Atlas, Redis	MongoDB Atlas
-Deployment & DevOps	GitHub Actions, Docker, CI/CD	Cloudflare, Vercel
-🔥 Next Steps
-1️⃣ Each member follows their respective roadmap.
-2️⃣ Use GitHub to merge code daily & test together.
-3️⃣ Meet every 2-3 days to track progress & fix issues.
-
-🎯 If you follow this plan, you’ll have a fully functional AI-powered question generator in 15 days! 🚀
